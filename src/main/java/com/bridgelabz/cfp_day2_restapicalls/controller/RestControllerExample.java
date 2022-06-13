@@ -1,9 +1,6 @@
 package com.bridgelabz.cfp_day2_restapicalls.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/hello")
@@ -24,10 +21,8 @@ public class RestControllerExample {
         return "Hello from Bridgelabz";
     }
     /* UC2
-    Make REST Call to show Hello
-    Mark from BridgeLabz
-    - Use GET Request Method and pass name as
-    query parameter
+    Make REST Call to show Hello Mark from BridgeLabz
+    - Use GET Request Method and pass name as // query parameter
     - Use CURL to demonstrate the REST API Call
     - curl localhost:8080/hello/query?name=Mark-w "\n"
      */
@@ -35,6 +30,17 @@ public class RestControllerExample {
     public String sayHelloQuery(@RequestParam(value="name") String name){
         return "Hello "+name+"from Bridgelabz!!!";
     }
+    /*UC3
+    Make REST Call to show Hello Mark from BridgeLabz
+    - Use GET Request Method and pass name as // path variable
+    - Use CURL to demonstrate the REST API Call
+    - curl localhost:8080/hello/param/Mark -w "\n"
+     */
+    @GetMapping("/param/{name}")
+    public String sayHelloParam(@PathVariable String name){
+        return "Hello "+name+" from Bridgelabz!!";
+    }
+
 
 
 
