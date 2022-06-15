@@ -55,6 +55,18 @@ public class RestControllerExample {
     public String sayHello(@RequestBody User user) {
         return "Hello " + user.getFirstName() + " " +user.getLastName() + "!";
     }
+    /* UC5
+    Make REST Call to show Hello Mark Taylor from BridgeLabz
+    - Use PUT Request Method and pass first name as Path Variable and last name as Query Parameter
+    - Use CURL to demonstrate the REST API Call
+    - curl -X PUT localhost:8080/hello/put/Mark/?lastName=Taylor -w "\n"
+     */
+
+    @PutMapping("/put/{firstName}")
+    public String sayHello(@PathVariable String firstName ,
+                           @RequestParam(value = "lastName") String lastName){
+        return "Hello" + firstName + " " + lastName + "!";
+    }
 
 
 
