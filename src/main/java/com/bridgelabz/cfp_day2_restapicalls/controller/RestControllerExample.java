@@ -1,5 +1,6 @@
 package com.bridgelabz.cfp_day2_restapicalls.controller;
 
+import com.bridgelabz.cfp_day2_restapicalls.model.User;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -40,6 +41,24 @@ public class RestControllerExample {
     public String sayHelloParam(@PathVariable String name){
         return "Hello "+name+" from Bridgelabz!!";
     }
+    /* UC4
+    Make REST Call to show Hello Mark Taylor from BridgeLabz
+    - Use POST Request Method and pass first name and last name in the Body
+    - Create User DTO Bean with firstName and lastName as attributes.
+    - Use CURL to demonstrate the REST API Call
+    - curl -X POST -H "Content-Type: application/json" -d
+    '{"firstName": ”Mark","lastName": ”Taylor"}'
+    "http://localhost:8080/hello/post" -w "\n"
+     */
+
+    @PostMapping("/post")
+    public String sayHello(@RequestBody User user) {
+        return "Hello " + user.getFirstName() + " " +user.getLastName() + "!";
+    }
+
+
+
+
 
 
 
